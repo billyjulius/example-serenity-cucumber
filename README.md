@@ -1,4 +1,4 @@
-# Serenty BDD with Cucumber
+# Serenity BDD with Cucumber
 This is sample automated test project using [SerenityBDD](http://www.serenity-bdd.info/) with [Cucumber](https://cucumber.io/). In this project, I demonstrated that [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) can be combined and used within the automated test script.
 
 ## Configuration
