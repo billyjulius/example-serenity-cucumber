@@ -44,5 +44,9 @@ It also very reusable as it can validate schema based from another schema refere
 6. Custom capabilities. Because Serenity wrapped the Selenium java, 
    it is often confusing how to use its certain behaviour such as adding custom capabilies. 
    I already including extension class for adding custom capabilities in Serenity. Detail can be seen in [Serenity BDD Book](https://serenity-bdd.github.io/theserenitybook/latest/index.html)
-7. (Coming Soon...) Cucumber Hooks
+7. Cucumber Hooks class available with either step hooks (AfterStep & BeforeStep) and scenario hooks (After & Before).
+   You can do some action before or after test step or scenario like example, 
+   - Reset data in database before every scenario 
+   - Call backend API for setting configuration
+   - Sending test result to external service, etc
 
