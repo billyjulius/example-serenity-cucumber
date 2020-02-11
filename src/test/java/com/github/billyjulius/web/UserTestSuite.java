@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features="src/test/resources/features",
-        tags="@user"
+        tags="@user",
+        glue={"com.github.billyjulius.web.definitions", "com.github.billyjulius.hooks"}
 )
 public class UserTestSuite {
 }
