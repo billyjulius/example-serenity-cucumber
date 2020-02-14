@@ -3,8 +3,10 @@ package com.github.billyjulius.web.pages;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class UserPage extends PageObject {
 
@@ -23,11 +25,21 @@ public class UserPage extends PageObject {
         element(sidebarMenu).shouldBeVisible();
     }
 
-    @FindBy(xpath = "(//a[text()='Invoice'])[5]")
-    WebElement buttonInvoice;
+    @FindAll(@FindBy(xpath = "//div[@id='bookings']/div[@class='row']"))
+    List<WebElement> rowBookings;
 
     public void openUnpaidInvoice() {
-        waitForCondition().until(ExpectedConditions.visibilityOf(element(By.xpath("(//div[@id='bookings']/div[@class='row'])[5]"))));
+        int unpaid_row = 0;
+        for (int i = 1; i<=rowBookings.size(); i++) {
+            String statusBooking = rowBookings.get(i-1).findElement(By.xpath("//div[@class='col-md-2 o2']/h5/strong/span")).getText();
+            if(statusBooking.equalsIgnoreCase("unpaid")) {
+                unpaid_row = i;
+                break;
+            }
+        }
+        if(unpaid_row == 0) System.out.println("Booking with status Unpaid Not Found");
+
+        WebElement buttonInvoice = getDriver().findElement(By.xpath("(//a[text()='Invoice'])["+ Integer.toString(unpaid_row) +"]"));
         buttonInvoice.click();
         Object[] windows = getDriver().getWindowHandles().toArray();
         getDriver().switchTo().window(windows[1].toString());
