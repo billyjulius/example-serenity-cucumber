@@ -1,9 +1,9 @@
 package com.github.billyjulius.hooks;
 
-import cucumber.api.java.After;
-import cucumber.api.java.AfterStep;
-import cucumber.api.java.Before;
-import cucumber.api.java.BeforeStep;
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 
 public class BeforeHooks {
     @After
