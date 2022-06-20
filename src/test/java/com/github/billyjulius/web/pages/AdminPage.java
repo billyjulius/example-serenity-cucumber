@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AdminPage extends PageObject {
-    @FindBy(xpath = "//ul[@id='social-sidebar-menu']")
+    @FindBy(xpath = "//div[@id='layoutDrawer_nav']")
     WebElement sidebarMenu;
 
-    @FindBy(xpath = "//div[@id='content']")
+    @FindBy(xpath = "//div[@id='layoutDrawer_content']")
     WebElement contentContainer;
 
     public void checkSidebarMenuDisplayed() {

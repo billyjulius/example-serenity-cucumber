@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PageObject {
-    @FindBy(name = "username")
+    @FindBy(xpath = "//input[@type='email'][@class='form-control']")
     WebElement textFieldUsername;
 
-    @FindBy(name = "password")
+    @FindBy(xpath = "//input[@type='password'][@class='form-control']")
     WebElement textFieldUPassword;
 
     @FindBy(css = ".btn-lg")
@@ -32,6 +32,6 @@ public class LoginPage extends PageObject {
 
     public void checkError() {
         element(alertError).shouldBeVisible();
-        Assert.assertEquals("Invalid Email or Password", alertError.getText());
+        Assert.assertEquals("Wrong credentials. try again!", alertError.getText());
     }
 }

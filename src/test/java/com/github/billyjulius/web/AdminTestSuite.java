@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features="src/test/resources/features",
         tags="@admin",
-        plugin = {"html:target/cucumber", "json:target/cucumber/report.json"},
+        plugin = {"json:target/cucumber/report.json"},
         glue={"com.github.billyjulius.web.definitions", "com.github.billyjulius.hooks"}
 )
 public class AdminTestSuite {}

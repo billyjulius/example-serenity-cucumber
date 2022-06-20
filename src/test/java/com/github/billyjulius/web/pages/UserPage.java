@@ -10,10 +10,10 @@ import java.util.List;
 
 public class UserPage extends PageObject {
 
-    @FindBy(xpath = "(//div[@class='main-wrapper scrollspy-action'])[1]")
+    @FindBy(xpath = "//div[@class='dashboard-content-wrap']")
     WebElement pageContainer;
 
-    @FindBy(xpath = "//ul[@class='menu-vertical-01']")
+    @FindBy(xpath = "//div[@class='sidebar-nav']")
     WebElement sidebarMenu;
 
 
@@ -27,6 +27,13 @@ public class UserPage extends PageObject {
 
     @FindAll(@FindBy(xpath = "//div[@id='bookings']/div[@class='row']"))
     List<WebElement> rowBookings;
+
+    @FindBy(xpath = "//ul[contains(@class, 'sidebar-menu')]/li/a[text()=' My Bookings']")
+    WebElement sidebarMenuMyBookings;
+
+    public void clickSidebarMenuMyBookings() {
+        sidebarMenuMyBookings.click();
+    }
 
     public void openUnpaidInvoice() {
         int unpaid_row = 0;
